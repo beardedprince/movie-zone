@@ -1,4 +1,13 @@
-# MovieApp
+# MovieZone
+
+<p align="center"> A web app of movies built with Angular </p>
+<hr>
+
+🇬 Made in Nigeria
+⚡ Reliable: Get movies easily
+<hr>
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
 
