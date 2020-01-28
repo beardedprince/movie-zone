@@ -8,19 +8,23 @@ export class MovieService {
 
   constructor(private http: HttpClient) { }
 
-  movie: any[];
+  movies: any[];
 
   fetchMovies() {
    return this.http.get('http://api.tvmaze.com/shows');
   }
 
-  fetchMoviesById(id: number) {
+  // fetchMoviesById(name: string) {
+  //   return this.http.get('http://api.tvmaze.com/shows').toPromise().then(res => {
+  //     console.log('res', res);
+  //   });
+
+  fetchMoviesByName(name: string) {
     this.fetchMovies().subscribe(result => {
-      console.log(result);
-      this.movie = result[0];
-      console.log('the reuslt', this.movie);
+      this.movies = result.constructor(result);
+      console.log('the fetched movie result', this.movies);
     });
-    // return this.movie.find(movie => movie.id === id);
+    return this.movies.find(movie => movie.name === name);
   }
 
   fetchEpisodes() {

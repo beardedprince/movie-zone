@@ -1,21 +1,25 @@
 <div class="container-fluid">
+  
   <div class="row border-light">
     <div class="col-xl-6  col-xl-offset-6" >
-      <p> <a href="" routerLink = "/">Home </a> ➡ <a href="">{{movie.params.name}}</a></p>
-      <h2>Name of Movie: {{movie.name}}  </h2> 
-      <p>Summary of movie: </p>
+        
+  <section class="breadcrumb breadcrumb-info mt-3" >
+      <a href="" routerLink = "/">Home </a>  ➡  <a href="">{{movies.params.name}}</a>
+    </section>
+      <h3 class="mb-2 bg-danger">Name of Movie:  {{movies.name }}</h3> 
+      <p>Summary of movie:{{movies.summary}} </p>
       <div class="d-flex flex-row mt-2 ">
         <div class="detail-one flex-fill">
-          <p> Genre: </p>
-          <p> Actor: </p>
-          <p> Director:   </p>
-          <p> Country:   </p>
+          <p class="pr-4 "> Genre: {{image.medium}} </p>
+          <p class="pr-4 "> Actor: </p>
+          <p class="pr-4 "> Director:   </p>
+          <p class="pr-4 "> Country:   </p>
         </div>
         <div class="detail-two flex-fill">
-          <p> Duration: </p>
-          <p> Quality: </p>
-          <p> Release: </p>
-          <p>iMBD rating: </p>
+          <p class="pr-4 "> Duration: </p>
+          <p class="pr-4 "> Quality: </p>
+          <p class="pr-4 "> Release: </p>
+          <p class=""> iMBD rating: </p>
         </div>
       </div>
      
@@ -35,7 +39,7 @@
             defaultImage= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNHa9sZKjWTDuu5n4pmAni_1EOzobWZD2tColqmsTSLfCY6ykOxA&s"
             [lazyLoad]="episode.image.medium"
             alt="{{episode.name}}"  (click)="goToDetails(episode.id, episode.name)">
-        <p class="movie-title text-center px-auto">{{episode.name}} - <b>Season  {{episode.season}}</b>   </p>
+        <p class="movie-title text-center px-2">{{episode.name}} - <b>Season  {{episode.season}}</b>   </p>
         <span class = "holder"> EPS {{episode.number}} </span>
     </div>
     </div>
