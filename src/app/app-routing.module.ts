@@ -6,7 +6,7 @@ import { EpisodesComponent } from './episodes/episodes.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'movies/:id/:name', component: MoviePageComponent},
+  {path: 'movies/:name', component: MoviePageComponent},
   {path: 'episode/:id/:name', component: EpisodesComponent},
 
 ];
