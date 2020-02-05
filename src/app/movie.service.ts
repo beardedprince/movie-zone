@@ -11,7 +11,7 @@ export class MovieService {
   movies: any[];
 
   fetchMovies() {
-   return this.http.get('http://api.tvmaze.com/shows');
+   return this.http.get('https://api.tvmaze.com/shows');
   }
 
   // fetchMoviesById(name: string) {
@@ -28,7 +28,7 @@ export class MovieService {
   }
 
   fetchEpisodes() {
-    return this.http.get('http://api.tvmaze.com/seasons/1/episodes');
+    return this.http.get('https://api.tvmaze.com/seasons/1/episodes');
   }
 
 }
