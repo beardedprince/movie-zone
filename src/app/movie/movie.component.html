@@ -1,0 +1,28 @@
+
+<div class="container-fluid">
+
+  
+  <h4 class="my-2"> All Movies </h4>
+  
+  <div class="row mb-3" >
+    
+    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-6 my-2" *ngFor = "let movies of movieList | paginate: { itemsPerPage: 24, currentPage: p }">
+      <div class="card">
+          <img defaultImage="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNHa9sZKjWTDuu5n4pmAni_1EOzobWZD2tColqmsTSLfCY6ykOxA&s"
+          [lazyLoad]="movies.image.medium" alt="{{movies.name}}" 
+          [useSrcset]="true" 
+          [routerLink]="['/movies', movies.name]"
+          >
+          <p class="movie-title text-center px-2">{{movies.name}} ({{movies.premiered | date: 'y'}})  </p>
+          <span class = "holder"> {{movies.language}} </span>
+      </div>
+      
+
+    </div>
+    <!-- (click)="goToDetails(movies.id, movies.name)" -->
+    
+  </div>
+
+  <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
+ 
+</div>
