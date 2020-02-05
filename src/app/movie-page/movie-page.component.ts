@@ -57,7 +57,6 @@ export class MoviePageComponent implements OnInit {
 // NAVIGATE EPISODES TO EPISODE DETAILS PAGE
 goToDetails(id: number, name: string) {
   this.router.navigate(['/episode', id, name]);
-  this.route.snapshot.url.join('-');
 }
     // this.movie = this.movieService.fetchMoviesById(mov);
     // this.route.params.subscribe(params => {

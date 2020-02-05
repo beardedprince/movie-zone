@@ -13,6 +13,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EpisodesComponent } from './episodes/episodes.component';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { MovieComponent } from './movie/movie.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
     HomeComponent,
     MoviePageComponent,
     HeaderComponent,
-    EpisodesComponent
+    EpisodesComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule,

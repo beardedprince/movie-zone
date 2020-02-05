@@ -7,10 +7,10 @@
       <a href="" routerLink = "/">Home </a>  ➡  <a href="">{{movies.params.name}}</a>
     </section>
       <h3 class="mb-2 bg-danger">Name of Movie:  {{movies.name }}</h3> 
-      <p>Summary of movie:{{movies.summary}} </p>
+      <p>Summary of movie: {{movies.summary}} </p>
       <div class="d-flex flex-row mt-2 ">
         <div class="detail-one flex-fill">
-          <p class="pr-4 "> Genre: {{image.medium}} </p>
+          <p class="pr-4 "> Genre: {{movies.image.medium}} </p>
           <p class="pr-4 "> Actor: </p>
           <p class="pr-4 "> Director:   </p>
           <p class="pr-4 "> Country:   </p>
@@ -33,7 +33,7 @@
       <p class="other-options">You may also like</p>
     </div>
 
-    <div class="col-md-2 mt-3" *ngFor = "let episode of episodeList">
+    <div class="col-md-2 mt-3" *ngFor = "let episode of episodeList | paginate: { itemsPerPage: 12, currentPage: p }" >
       <div class="card">
         <img 
             defaultImage= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNHa9sZKjWTDuu5n4pmAni_1EOzobWZD2tColqmsTSLfCY6ykOxA&s"

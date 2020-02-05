@@ -23,8 +23,8 @@ export class MovieService {
     this.fetchMovies().subscribe(result => {
       this.movies = result.constructor(result);
       console.log('the fetched movie result', this.movies);
+      return this.movies.find(movie => movie.name === name);
     });
-    return this.movies.find(movie => movie.name === name);
   }
 
   fetchEpisodes() {
