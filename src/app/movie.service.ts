@@ -14,10 +14,7 @@ export class MovieService {
    return this.http.get('https://api.tvmaze.com/shows');
   }
 
-  // fetchMoviesById(name: string) {
-  //   return this.http.get('http://api.tvmaze.com/shows').toPromise().then(res => {
-  //     console.log('res', res);
-  //   });
+  
 
   fetchMoviesByName(name: string) {
     this.fetchMovies().subscribe(result => {
