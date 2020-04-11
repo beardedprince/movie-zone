@@ -1,31 +1,35 @@
 <div class="container-fluid">
-  
-  <div class="row border-light">
-    <div class="col-xl-6  col-xl-offset-6" >
-        
-  <section class="breadcrumb breadcrumb-info mt-3" >
-      <a href="" routerLink = "/">Home </a>  ➡  <a href="">{{movies.params.name}}</a>
-    </section>
-      <h3 class="mb-2 bg-danger">Name of Movie:  {{movies.name }}</h3> 
-      <p>Summary of movie: {{movies.summary}} </p>
-      <div class="d-flex flex-row mt-2 ">
-        <div class="detail-one flex-fill">
-          <p class="pr-4 "> Genre: {{movies.image.medium}} </p>
-          <p class="pr-4 "> Actor: </p>
-          <p class="pr-4 "> Director:   </p>
-          <p class="pr-4 "> Country:   </p>
+
+  <section class="breadcrumb breadcrumb-info mt-3">
+    <a href="" routerLink="/">Home </a> <span class="breadcrumb__arrow">&rarr;</span> <span class="text-info">{{movies.params.id}}</span>
+  </section>
+
+ <div class="movie-holder" >
+    <div class="row border-light">
+        <div class="col-xl-4 col-md-6 col-sm-12">
+    
+    
+          <img src="{{movieDetails.image.medium}}" alt="" srcset="" >
+    
         </div>
-        <div class="detail-two flex-fill">
-          <p class="pr-4 "> Duration: </p>
-          <p class="pr-4 "> Quality: </p>
-          <p class="pr-4 "> Release: </p>
-          <p class=""> iMBD rating: </p>
+        <div class="col-xl-8 col-md-6 col-sm-12">
+         
+          <div class="me">
+            <h3 class="mb-3"> {{movieDetails.name}} </h3>
+            <h5 class="mr-5 py-2"> Summary:  {{movieDetails.summary}} </h5>
+            <div class="d-flex flex-row my-2 ">
+              <div class="detail-one flex-fill">
+               <span class="pr-4 py-2">Tags</span> <span class="pr-4 my-5 " *ngFor = "let badge of badges">    <span class="badge badge-info p-2"> {{badge}} </span> </span>
+                <p class="pr-4 py-2 "> Language: {{movieDetails.language}} </p>
+             
+                <p class="pr-4 py-2"> iMBD rating: {{movieDetails.rating.average}} </p>
+    
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-     
-  
-    </div>
-  </div>
+ </div>
 
 
   <div class="row mt-5">
@@ -33,19 +37,20 @@
       <p class="other-options">You may also like</p>
     </div>
 
-    <div class="col-md-2 mt-3" *ngFor = "let episode of episodeList | paginate: { itemsPerPage: 12, currentPage: p }" >
+    <div class="col-md-2 my-3" *ngFor="let episode of episodeList | paginate: { itemsPerPage: 12, currentPage: p }">
       <div class="card">
-        <img 
-            defaultImage= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNHa9sZKjWTDuu5n4pmAni_1EOzobWZD2tColqmsTSLfCY6ykOxA&s"
-            [lazyLoad]="episode.image.medium"
-            alt="{{episode.name}}"  (click)="goToDetails(episode.id, episode.name)">
-        <p class="movie-title text-center px-2">{{episode.name}} - <b>Season  {{episode.season}}</b>   </p>
-        <span class = "holder"> EPS {{episode.number}} </span>
-    </div>
+        <img
+          defaultImage="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNHa9sZKjWTDuu5n4pmAni_1EOzobWZD2tColqmsTSLfCY6ykOxA&s"
+          [lazyLoad]="episode.image.medium" alt="{{episode.name}}" (click)="goToDetails(episode.id, episode.name)">
+        <p class="movie-title text-center px-2">{{episode.name}} - <b>Season {{episode.season}}</b> </p>
+        <span class="holder"> EPS {{episode.number}} </span>
+      </div>
     </div>
 
 
-  
+
 
   </div>
 </div>
+
+<!-- [ngStyle]="{ 'background-image': 'url(' + img + ')'}" -->

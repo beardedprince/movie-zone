@@ -9,11 +9,12 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MoviePageComponent } from './movie-page/movie-page.component';
 import { HeaderComponent } from './header/header.component';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EpisodesComponent } from './episodes/episodes.component';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { MovieComponent } from './movie/movie.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MovieComponent } from './movie/movie.component';
     MoviePageComponent,
     HeaderComponent,
     EpisodesComponent,
-    MovieComponent
+    MovieComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
