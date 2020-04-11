@@ -1,6 +1,6 @@
 # MovieZone
 
-<p align="center"> A web app of movies built with Angular </p>
+<p align="center"> A web app of movies built with Angular. I used the TV Maze API to fetch dynamic data to the app. Check repo on GitHub for more information. </p>
 <hr>
 
 🇬 Made in Nigeria

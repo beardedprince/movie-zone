@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MovieService} from './../movie.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import {Title, Meta} from '@angular/platform-browser';
@@ -10,8 +10,10 @@ import {Title, Meta} from '@angular/platform-browser';
 })
 export class MoviePageComponent implements OnInit {
 
-  movies: any;
+  movieDetails: any;
   episodeList: object;
+  badges: [];
+  tags: any;
 
   constructor(private movieService: MovieService,
               private route: ActivatedRoute,
@@ -25,29 +27,27 @@ export class MoviePageComponent implements OnInit {
     this.meta.addTags([
       {name: 'title', content: 'MovieZone'},
       {name: 'description', content: 'MovieZone brings movies and shows to your easily'},
-      {name: 'keyword', contnet: 'movie, TV Shows, Episodes, Entertainment'}
+      {name: 'keyword', content: 'movie, TV Shows, Episodes, Entertainment'}
     ]);
 
+    const id = this.route.snapshot.params.id;
+    console.log(id);
+    this.movieService.fetchMoviesByName(id).subscribe(res => {
+      this.movieDetails = res;
+      this.badges = this.movieDetails.genres;
+     });
 
-    const idRef = 'name';
-    const name = this.route.snapshot.params[idRef];
-    this.movies = this.movieService.fetchMoviesByName(name);
-    this.route.params.subscribe(params => {
-      this.movies = this.movieService.fetchMoviesByName(params[idRef]);
-    });
-
-    console.log(this.movies);
 
     // Get seasonal movies
     this.movieService.fetchEpisodes().subscribe(episodes => {
-      this.episodeList = episodes;
-      console.log('na your episodes be this', episodes);
-    });
+        this.episodeList = episodes;
+        console.log('na your episodes be this', episodes);
+      });
 
     // breadcrumb navigation
     const mov = this.route.paramMap.subscribe((params: Params) => {
       this.movies = params;
-      console.log('ww', params.params.name);
+      console.log('ww', params.params.id);
     });
 
 
@@ -58,16 +58,5 @@ export class MoviePageComponent implements OnInit {
 goToDetails(id: number, name: string) {
   this.router.navigate(['/episode', id, name]);
 }
-    // this.movie = this.movieService.fetchMoviesById(mov);
-    // this.route.params.subscribe(params => {
-    //  this.movie = this.movieService.fetchMoviesById(params.idRef);
-    // });
 
-    // console.log('movei page .ts', this.movie);
-    // getMovie() {
-  //     this.movieService.fetchMovies().forEach( movies => {
-  //       this.movies = movies;
-  //       console.log('this movies se', this.movies);
-  //     });
-  //   }
   }

@@ -22,11 +22,6 @@ export class HomeComponent implements OnInit {
       this.movieList = result;
       console.log(result);
     });
-    // this.movieList = this.route.snapshot.data['movies'];
-    // console.log(this.movieList);
 
   }
-    // goToDetails(id: number, name: string) {
-    //       this.router.navigate(['/movies', id, name]);
-    //     }
 }
