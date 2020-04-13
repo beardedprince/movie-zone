@@ -1,0 +1,15 @@
+const express = require('express');
+const path = require('path');
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use(express.static(__dirname + '/dist/movie-app'));
+
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/dist/movie-app/index.html'));
+})
+
+app.listen( process.env.PORT || port, function() {
+    console.log('server running on' + port);
+});
