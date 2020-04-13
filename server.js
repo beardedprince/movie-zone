@@ -10,6 +10,4 @@ app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname + '/dist/movie-app/index.html'));
 })
 
-app.listen( process.env.PORT || port, function() {
-    console.log('server running on' + port);
-});
+app.listen( process.env.PORT || port);
