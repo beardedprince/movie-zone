@@ -9,11 +9,10 @@ import {Title, Meta} from '@angular/platform-browser';
   styleUrls: ['./movie-page.component.sass'],
 })
 export class MoviePageComponent implements OnInit {
-
+  movies;
   movieDetails: any;
   episodeList: object;
   badges: [];
-  tags: any;
 
   constructor(private movieService: MovieService,
               private route: ActivatedRoute,
