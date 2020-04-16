@@ -54,8 +54,8 @@ export class MoviePageComponent implements OnInit {
 // END OF ngOnInit
 
 // NAVIGATE EPISODES TO EPISODE DETAILS PAGE
-goToDetails(id: number, name: string) {
-  this.router.navigate(['/episode', id, name]);
-}
+// goToDetails(id: number, name: string) {
+//   this.router.navigate(['/episode', id, name]);
+// }
 
   }
